@@ -9,8 +9,8 @@ const useStore = () => {
 
     return {
       ...initialValues,
-      jwtToken: authToken || null,
-      userData: userInfo || null,
+      jwtToken: authToken || initialValues.jwtToken,
+      userData: userInfo || initialValues.userData,
     };
   });
 
@@ -20,6 +20,7 @@ const useStore = () => {
     localStorage.setItem("userData", JSON.stringify(state.userData));
   }, [state.jwtToken, state.userData]);
 
+  console.log(state, "state");
   return [state, dispatch];
 };
 
