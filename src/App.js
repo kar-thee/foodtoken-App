@@ -31,6 +31,7 @@ import UpdatePwdPage from "./pages/private/employee/UpdatePwdPage";
 import EmployeeProtected from "./helpers/routeProtecter/EmployeeProtected";
 import CanteenProtected from "./helpers/routeProtecter/CanteenProtected";
 import AdminProtected from "./helpers/routeProtecter/AdminProtected";
+import GetSingleUserPage from "./pages/private/admin/GetSingleUserPage";
 
 const App = () => {
   const theme = createTheme({
@@ -68,6 +69,14 @@ const App = () => {
               element={
                 <AdminProtected redirect={<WelcomeUser />}>
                   <GetAllUsersPage />
+                </AdminProtected>
+              }
+            />
+            <Route
+              path="userInfo/:userId"
+              element={
+                <AdminProtected redirect={<WelcomeUser />}>
+                  <GetSingleUserPage />
                 </AdminProtected>
               }
             />

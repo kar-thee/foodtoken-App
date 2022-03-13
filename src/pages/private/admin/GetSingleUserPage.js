@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+import GetSingleUserApiCall from "../../../apis/admin/GetSingleUserApiCall";
+import GetSingleUserInfo from "../../../components/private/admin/GetSingleUserInfo";
 import PageTitle from "../../../components/private/navigation/PageTitle";
 import ToastFunc from "../../../helpers/toasts/ToastFunc";
-
 import useActionDispatcher from "../../../hooks/useActionDispatcher";
 import useStateValues from "../../../hooks/useStateValues";
 
-import GetAllTokensApiCall from "../../../apis/admin/GetAllTokensApiCall";
-import GetAllTokens from "../../../components/private/admin/GetAllTokens";
-const GetAllTokensPage = () => {
-  const [tokenState, setTokenState] = useState("");
+const GetSingleUserPage = () => {
+  const [userState, setUserState] = useState("");
+  const { userId } = useParams();
 
   const dispatch = useActionDispatcher();
   const { jwtToken } = useStateValues();
@@ -16,29 +18,29 @@ const GetAllTokensPage = () => {
   useEffect(() => {
     (async () => {
       dispatch({ type: "loadingOn" });
-      const response = await GetAllTokensApiCall(jwtToken);
+      const response = await GetSingleUserApiCall(userId, jwtToken);
       dispatch({ type: "loadingOff" });
 
       if (response.data.type === "success") {
         //api call success
-        setTokenState(response.data.tokensFound);
+        setUserState(response.data.userFound);
         ToastFunc({ msg: response.data.msg, type: "success" });
       } else {
         //apicall failed
         ToastFunc({ msg: response.data.msg, type: "error" });
       }
     })();
-  }, [dispatch, jwtToken]);
+  }, [dispatch, jwtToken, userId]);
   return (
     <>
       {/* this is pageTitle */}
       <>
-        <PageTitle title="GetAll Tokens" />
+        <PageTitle title="UserInfo" />
       </>
 
-      <GetAllTokens tokenState={tokenState} />
+      <GetSingleUserInfo userState={userState} />
     </>
   );
 };
 
-export default GetAllTokensPage;
+export default GetSingleUserPage;
