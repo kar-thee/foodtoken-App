@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const UpdatePwdApiCall = (data, jwtToken) => {
+const UpdatePwdApiCall = async (data, jwtToken) => {
   //data -> {oldPwd,newPwd}
   try {
-    const response = axios.put(
+    const response = await axios.put(
       `${process.env.REACT_APP_API_DOMAIN_NAME}/${process.env.REACT_APP_UPDATE_PWD}`,
       data,
       {

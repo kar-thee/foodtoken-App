@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const SigninApiCall = (data) => {
+const SigninApiCall = async (data) => {
   // data -> {email,password}
   try {
-    const response = axios.post(
+    const response = await axios.post(
       `${process.env.REACT_APP_API_DOMAIN_NAME}/${process.env.REACT_APP_SIGNIN}`,
       data
     );

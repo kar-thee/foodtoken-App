@@ -5,7 +5,7 @@ const ToastFunc = ({ msg, type }) => {
     icon: type === "success" ? "👍" : "👎",
     style: {
       borderRadius: "10px",
-      background: "#333",
+      background: "#f5f5f5",
       color: type === "success" ? "#198754" : "#dc3545",
     },
   });

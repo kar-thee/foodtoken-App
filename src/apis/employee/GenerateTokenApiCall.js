@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const GenerateTokenApiCall = (data, jwtToken) => {
+const GenerateTokenApiCall = async (data, jwtToken) => {
   //data -> {tokenType}
   try {
-    const response = axios.post(
+    const response = await axios.post(
       `${process.env.REACT_APP_API_DOMAIN_NAME}/${process.env.REACT_APP_GENERATE_TOKEN}`,
       data,
       {

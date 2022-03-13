@@ -143,7 +143,7 @@ const App = () => {
       </AppProvider>
 
       {/* react hot toast */}
-      <Toaster position="top-right" reverseOrder={true} />
+      <Toaster position="bottom-right" reverseOrder={true} />
     </>
   );
 };

@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const AuthorizeUserApiCall = (data, jwtToken) => {
+const AuthorizeUserApiCall = async (data, jwtToken) => {
   //data -> {userId,noOfMonthsFoodAccess}
   try {
-    const response = axios.put(
+    const response = await axios.put(
       `${process.env.REACT_APP_API_DOMAIN_NAME}/${process.env.REACT_APP_AUTHORIZE_USER}`,
       data,
       {

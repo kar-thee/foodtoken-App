@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const VerifyTokenApiCall = (data, jwtToken) => {
+const VerifyTokenApiCall = async (data, jwtToken) => {
   //data -> {tokenFromRequest - mealToken or beverageToken}
   try {
-    const response = axios.post(
+    const response = await axios.post(
       `${process.env.REACT_APP_API_DOMAIN_NAME}/${process.env.REACT_APP_CANTEEN_VERIFYTOKEN}`,
       data,
       {
