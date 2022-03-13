@@ -46,6 +46,7 @@ const VerifyTokenPage = () => {
       setMsgState(response.data);
     }
   };
+
   return (
     <>
       {/* this is pageTitle */}
