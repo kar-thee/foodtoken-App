@@ -3,12 +3,11 @@ import { Outlet } from "react-router-dom";
 
 const CanteenLayout = () => {
   return (
-    <div>
-      CanteenLayout
+    <>
       <>
         <Outlet />
       </>
-    </div>
+    </>
   );
 };
 

@@ -12,6 +12,7 @@ import { Toaster } from "react-hot-toast";
 import Loader from "./helpers/Loader";
 import { createTheme, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
+import WelcomeUser from "./pages/private/WelcomeUser";
 
 const theme = createTheme({
   palette: {
@@ -29,7 +30,7 @@ const App = () => {
         <CssBaseline />
 
         <Routes>
-          <Route path="/" element={<SignupPage />} />
+          <Route path="/" element={<SigninPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/signin" element={<SigninPage />} />
 
@@ -41,8 +42,9 @@ const App = () => {
               </Protected>
             }
           >
+            <Route path="" element={<WelcomeUser />} />
             <Route path="go" element={<SignupPage />} />
-            <Route path="*" element={<SigninPage />} />
+            <Route path="*" element={<WelcomeUser />} />
           </Route>
 
           <Route path="*" element={<SigninPage />} />

@@ -1,31 +1,39 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
+import Navigation from "../components/private/navigation/Navigation";
+
+import adminNavList from "../helpers/navItems/AdminNavList";
+import canteenNavList from "../helpers/navItems/CanteenNavList";
+import employeeNavList from "../helpers/navItems/EmployeeNavList";
+
 import { ADMIN, CANTEEN, EMPLOYEE } from "../helpers/UserRoles";
 import useRole from "../hooks/useRole";
-import AdminLayout from "./AdminLayout";
-
-import CanteenLayout from "./CanteenLayout";
-import EmployeeLayout from "./EmployeeLayout";
 
 const Dashboard = () => {
   const userRole = useRole();
   return (
     <>
-      Dashboard
+      {/* if role is admin, show admin layout */}
       {userRole === ADMIN && (
         <>
-          <AdminLayout />
+          <Navigation navFeaturesList={adminNavList} />
         </>
       )}
+      {/* if role is canteen, show canteen layout */}
       {userRole === CANTEEN && (
         <>
-          <CanteenLayout />
+          <Navigation navFeaturesList={canteenNavList} />
         </>
       )}
+      {/* if role is employee, show employee layout */}
       {userRole === EMPLOYEE && (
         <>
-          <EmployeeLayout />
+          <Navigation navFeaturesList={employeeNavList} />
         </>
       )}
+      <>
+        <Outlet />
+      </>
     </>
   );
 };

@@ -11,7 +11,7 @@ const reducerFunc = (state, actionObj) => {
       };
     }
     case "signOut": {
-      return { ...initialValues };
+      return initialValues;
     }
 
     //loadingState
