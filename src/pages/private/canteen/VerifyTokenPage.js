@@ -1,7 +1,15 @@
 import React from "react";
+import PageTitle from "../../../components/private/navigation/PageTitle";
 
 const VerifyTokenPage = () => {
-  return <div>VerifyTokenPage</div>;
+  return (
+    <>
+      {/* this is pageTitle */}
+      <>
+        <PageTitle title="Verify Token" />
+      </>
+    </>
+  );
 };
 
 export default VerifyTokenPage;

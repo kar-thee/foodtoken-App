@@ -1,7 +1,15 @@
 import React from "react";
+import PageTitle from "../../../components/private/navigation/PageTitle";
 
 const GetAllUsersPage = () => {
-  return <div>GetAllUsersPage</div>;
+  return (
+    <>
+      {/* this is pageTitle */}
+      <>
+        <PageTitle title="GetAll Users" />
+      </>
+    </>
+  );
 };
 
 export default GetAllUsersPage;

@@ -101,8 +101,7 @@ const Navigation = ({ navFeaturesList }) => {
                 {navFeaturesList.map(({ name, href }) => (
                   <MenuItem key={name} onClick={() => handleCloseNavList()}>
                     <Button
-                      textAlign="center"
-                      sx={{ color: "#009688" }}
+                      sx={{ color: "#009688", textAlign: "center" }}
                       onClick={() => goToWhere(href)}
                     >
                       {name}

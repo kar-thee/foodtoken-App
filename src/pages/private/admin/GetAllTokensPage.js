@@ -1,7 +1,15 @@
 import React from "react";
+import PageTitle from "../../../components/private/navigation/PageTitle";
 
 const GetAllTokensPage = () => {
-  return <div>GetAllTokensPage</div>;
+  return (
+    <>
+      {/* this is pageTitle */}
+      <>
+        <PageTitle title="GetAll Tokens" />
+      </>
+    </>
+  );
 };
 
 export default GetAllTokensPage;

@@ -25,16 +25,14 @@ const UserNavList = ({ handleCloseUserIcon }) => {
       {userRole === EMPLOYEE && (
         <>
           <Button
-            textAlign="center"
-            sx={{ color: "#009688" }}
+            sx={{ color: "#009688", textAlign: "center" }}
             onClick={() => goToWhere("myprofile")}
           >
             My Profile
           </Button>
 
           <Button
-            textAlign="center"
-            sx={{ color: "#009688" }}
+            sx={{ color: "#009688", textAlign: "center" }}
             onClick={() => goToWhere("changepwd")}
           >
             Update Password
@@ -43,8 +41,7 @@ const UserNavList = ({ handleCloseUserIcon }) => {
       )}
 
       <Button
-        textAlign="center"
-        sx={{ color: "#009688" }}
+        sx={{ color: "#009688", textAlign: "center" }}
         onClick={() => logOutFunc()}
       >
         Logout

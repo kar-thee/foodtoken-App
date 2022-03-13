@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import PageTitle from "../../components/private/navigation/PageTitle";
 import { ADMIN, CANTEEN, EMPLOYEE } from "../../helpers/UserRoles";
 import useRole from "../../hooks/useRole";
 
@@ -7,6 +8,11 @@ const WelcomeUser = () => {
   const userRole = useRole();
   return (
     <>
+      {/* this is pageTitle */}
+      <>
+        <PageTitle title="Welcome User" />
+      </>
+
       {/* if role is admin, show admin layout */}
       {userRole === ADMIN && (
         <>

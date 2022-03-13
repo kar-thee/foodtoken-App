@@ -1,7 +1,15 @@
 import React from "react";
+import PageTitle from "../../../components/private/navigation/PageTitle";
 
 const UserProfilePage = () => {
-  return <div>UserProfilePage</div>;
+  return (
+    <>
+      {/* this is pageTitle */}
+      <>
+        <PageTitle title="My Profile" />
+      </>
+    </>
+  );
 };
 
 export default UserProfilePage;

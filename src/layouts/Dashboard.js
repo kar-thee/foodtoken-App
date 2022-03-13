@@ -13,6 +13,7 @@ const Dashboard = () => {
   const userRole = useRole();
   return (
     <>
+      {/* NavigationBar */}
       {/* if role is admin, show admin layout */}
       {userRole === ADMIN && (
         <>
@@ -31,6 +32,8 @@ const Dashboard = () => {
           <Navigation navFeaturesList={employeeNavList} />
         </>
       )}
+
+      {/* this is where different components gets rendered based on url-path */}
       <>
         <Outlet />
       </>

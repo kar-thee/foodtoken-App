@@ -1,5 +1,5 @@
-import useAuth from "../hooks/useAuth";
-import useRole from "../hooks/useRole";
+import useAuth from "../../hooks/useAuth";
+import useRole from "../../hooks/useRole";
 
 const Protected = ({ children, redirect }) => {
   const isTokenPresent = useAuth();
