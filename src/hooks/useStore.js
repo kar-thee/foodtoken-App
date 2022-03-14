@@ -20,7 +20,6 @@ const useStore = () => {
     localStorage.setItem("userData", JSON.stringify(state.userData));
   }, [state.jwtToken, state.userData]);
 
-  console.log(state, "state");
   return [state, dispatch];
 };
 
