@@ -7,14 +7,22 @@ import useActionDispatcher from "../../../hooks/useActionDispatcher";
 import useStateValues from "../../../hooks/useStateValues";
 import ToastFunc from "../../../helpers/toasts/ToastFunc";
 import MyTokens from "../../../components/private/employee/MyTokens";
+import { useNavigate } from "react-router-dom";
 
 const UserTokensPage = () => {
   const [myTokens, setMyTokens] = useState(null);
 
   const dispatch = useActionDispatcher();
-  const { jwtToken } = useStateValues();
+  const { jwtToken, userData } = useStateValues();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
+    // the below code helps in accessing only if user is verified
+    if (userData.accountVerified === false) {
+      navigate("/dashboard/accountnotverified");
+      return;
+    }
     (async () => {
       dispatch({ type: "loadingOn" });
       const response = await GetUserTokensApiCall(jwtToken);
@@ -30,7 +38,7 @@ const UserTokensPage = () => {
         setMyTokens("empty");
       }
     })();
-  }, [dispatch, jwtToken]);
+  }, [dispatch, jwtToken, navigate, userData.accountVerified]);
 
   return (
     <>

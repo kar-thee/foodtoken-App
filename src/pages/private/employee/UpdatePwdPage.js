@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UpdatePwd from "../../../components/private/employee/UpdatePwd";
 import PageTitle from "../../../components/private/navigation/PageTitle";
 
@@ -8,6 +8,7 @@ import useStateValues from "../../../hooks/useStateValues";
 import UpdatePwdApiCall from "../../../apis/employee/UpdatePwdApiCall";
 import ToastFunc from "../../../helpers/toasts/ToastFunc";
 import UpdatePwdResponse from "../../../components/private/employee/UpdatePwdResponse";
+import { useNavigate } from "react-router-dom";
 
 const UpdatePwdPage = () => {
   const [state, setState] = useState({ oldPwd: "", newPwd: "" });
@@ -19,7 +20,15 @@ const UpdatePwdPage = () => {
   const [pwdUpdateResponse, setPwdUpdateResponse] = useState(null);
 
   const dispatch = useActionDispatcher();
-  const { jwtToken } = useStateValues();
+  const { jwtToken, userData } = useStateValues();
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    // the below code helps in accessing only if user is verified
+    if (userData.accountVerified === false) {
+      navigate("/dashboard/accountnotverified");
+    }
+  }, [navigate, userData.accountVerified]);
 
   const handleChange = (ev) => {
     setState((prev) => ({ ...prev, [ev.target.name]: ev.target.value }));

@@ -75,7 +75,7 @@ const AuthorizeUserPage = () => {
         <PageTitle title="Authorize User" />
       </>
       {/* here AuthorizeUser component */}
-      {usersState.length > 1 ? (
+      {usersState.length > 0 ? (
         <AuthorizeUser
           usersState={usersState}
           selectedUser={selectedUser}

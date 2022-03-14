@@ -32,6 +32,9 @@ import EmployeeProtected from "./helpers/routeProtecter/EmployeeProtected";
 import CanteenProtected from "./helpers/routeProtecter/CanteenProtected";
 import AdminProtected from "./helpers/routeProtecter/AdminProtected";
 import GetSingleUserPage from "./pages/private/admin/GetSingleUserPage";
+import AccountNotVerified from "./pages/private/AccountNotVerified";
+import AskMoreTokensPage from "./pages/private/employee/AskMoreTokensPage";
+import GiveMoreTokensPage from "./pages/private/admin/GiveMoreTokensPage";
 
 const App = () => {
   const theme = createTheme({
@@ -61,7 +64,6 @@ const App = () => {
             }
           >
             <Route path="" element={<WelcomeUser />} />
-            <Route path="go" element={<SignupPage />} />
 
             {/* admin routes */}
             <Route
@@ -96,6 +98,14 @@ const App = () => {
                 </AdminProtected>
               }
             />
+            <Route
+              path="givemoretokens"
+              element={
+                <AdminProtected redirect={<WelcomeUser />}>
+                  <GiveMoreTokensPage />
+                </AdminProtected>
+              }
+            />
 
             {/* canteen route */}
             <Route
@@ -113,6 +123,14 @@ const App = () => {
               element={
                 <EmployeeProtected redirect={<WelcomeUser />}>
                   <GenerateTokenPage />
+                </EmployeeProtected>
+              }
+            />
+            <Route
+              path="requestmoretokens"
+              element={
+                <EmployeeProtected redirect={<WelcomeUser />}>
+                  <AskMoreTokensPage />
                 </EmployeeProtected>
               }
             />
@@ -137,6 +155,14 @@ const App = () => {
               element={
                 <EmployeeProtected redirect={<WelcomeUser />}>
                   <UpdatePwdPage />
+                </EmployeeProtected>
+              }
+            />
+            <Route
+              path="accountnotverified"
+              element={
+                <EmployeeProtected redirect={<WelcomeUser />}>
+                  <AccountNotVerified />
                 </EmployeeProtected>
               }
             />

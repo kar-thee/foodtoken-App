@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import GenerateToken from "../../../components/private/employee/GenerateToken";
 import GenerateTokenResponse from "../../../components/private/employee/GenerateTokenResponse";
@@ -10,13 +10,22 @@ import useActionDispatcher from "../../../hooks/useActionDispatcher";
 import useStateValues from "../../../hooks/useStateValues";
 
 import GenerateTokenApiCall from "../../../apis/employee/GenerateTokenApiCall";
+import { useNavigate } from "react-router-dom";
 
 const GenerateTokenPage = () => {
   const [state, setState] = useState("");
   const [msgState, setMsgState] = useState(null);
 
   const dispatch = useActionDispatcher();
-  const { jwtToken } = useStateValues();
+  const { jwtToken, userData } = useStateValues();
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    // the below code helps in accessing only if user is verified
+    if (userData.accountVerified === false) {
+      navigate("/dashboard/accountnotverified");
+    }
+  }, [navigate, userData.accountVerified]);
 
   const handleChange = (ev) => {
     setState(ev.target.value);
