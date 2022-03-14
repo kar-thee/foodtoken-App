@@ -61,11 +61,11 @@ const AuthorizeUserPage = () => {
     if (response.data.type === "success") {
       //api call success
       ToastFunc({ msg: response.data.msg, type: "success" });
-      navigate("dashboard");
+      navigate("/dashboard");
     } else {
       //apicall failed
       ToastFunc({ msg: response.data.msg, type: "error" });
-      navigate("dashboard");
+      navigate("/dashboard");
     }
   };
   return (
