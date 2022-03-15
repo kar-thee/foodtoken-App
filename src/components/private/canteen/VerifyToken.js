@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, Stack, TextField } from "@mui/material";
 import React from "react";
 import ComponentWrapper from "../ComponentWrapper";
 
@@ -18,11 +18,15 @@ const VerifyToken = ({ state, handleChange, VerifyTokenFunc }) => {
             overflow: "hidden",
           }}
         />
-        <Box sx={{ py: 2, my: 2 }}>
-          <Button variant="contained" onClick={() => VerifyTokenFunc()}>
+        <Stack sx={{ py: 2, my: 2 }}>
+          <Button
+            variant="contained"
+            onClick={() => VerifyTokenFunc()}
+            sx={{ my: 1 }}
+          >
             Verify
           </Button>
-        </Box>
+        </Stack>
       </Box>
     </ComponentWrapper>
   );

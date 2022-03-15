@@ -1,5 +1,6 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
+import GenerateQrCode from "../../../helpers/qrcode-generate/GenerateQrCode";
 import ComponentWrapper from "../ComponentWrapper";
 
 const GenerateTokenResponse = ({ msgState, goBackFunc }) => {
@@ -23,6 +24,7 @@ const GenerateTokenResponse = ({ msgState, goBackFunc }) => {
           >
             {msgState.msg}
           </Typography>
+
           {/* only success, show below */}
           {msgState.type === "success" && (
             <>
@@ -51,6 +53,25 @@ const GenerateTokenResponse = ({ msgState, goBackFunc }) => {
                 >
                   {msgState.tokenString}
                 </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  pt: 5,
+                  pb: 3,
+                  px: 4,
+                  my: 4,
+                  border: "1px solid brown",
+                  textAlign: { xs: "unset", sm: "center" },
+                  mx: { xs: 1, md: 0 },
+                }}
+              >
+                <Typography variant="h5" sx={{ py: 2 }}>
+                  {" "}
+                  Scan Qr-code here :
+                </Typography>
+                {/* react-qr-code component here */}
+                <GenerateQrCode tokenCode={msgState.tokenString} />
               </Box>
             </>
           )}
