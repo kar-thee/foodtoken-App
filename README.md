@@ -7,7 +7,6 @@ A FullStack React app [MERN] for generating food e-Tokens for  employees inhouse
 <h4> https://foodtokenapp-karthee.netlify.app </h4>
 <br>
 
-<br>
 <h4>This is my Capstone Project for FullStack Developer [MERN] Bootcamp</h4>
 <br>
 
@@ -31,7 +30,7 @@ A FullStack React app [MERN] for generating food e-Tokens for  employees inhouse
   
    <li><h5>EMPLOYEE responsibilities-> GenerateTokens,RequestMoreTokens,ViewAllTokens and other user activities like viewProfile and UpdatePassword</h5></li>
   
-  <li><h5>Food Tokens - there are 2 types -> Meal and BEverage tokens</h5></li>
+  <li><h5>Food Tokens - there are 2 types -> Meal and Beverage tokens</h5></li>
   
   <li><h5>Token Rules : 1 user can generate Max 3 tokens per day (1 Meal and 2 Beverage) Tokens</h5></li>
   
