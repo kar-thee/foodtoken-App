@@ -20,7 +20,7 @@ A FullStack React app [MERN] for generating food e-Tokens for  employees inhouse
 
 ## App Features
 <ol>
-  <li><h5>Implemented Role Based Authorisation</h5></li>
+  <li><h5>Implemented userRole Based Authorisation - (ADMIN,CANTEEN and EMPLOYEE users)</h5></li>
 
   <li><h5>Implemented QR-code for displaying tokens generated</h5></li>
   
