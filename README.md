@@ -39,7 +39,7 @@ A FullStack React app [MERN] for generating food e-Tokens for  employees inhouse
 <br>
 
 
-## chatApp - everything to know
+## foodToken-App - everything to know
 <h6>Built with Mui 5 + React Hooks</h6>
 <h6>Global State Store managed with context and useReducer along with custom Hooks</h6>
 <h6>App is completely Responsive with Dashboard Layout</h6>
